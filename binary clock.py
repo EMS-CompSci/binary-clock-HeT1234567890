@@ -33,13 +33,16 @@ print(denaryToBinary(453))"""
 import datetime
 import time
 import pygame
+from random import randint
 
 pygame.init()
 screen = pygame.display.set_mode((200,350))
 pygame.display.set_caption("Binary clock")
 
+def randCol():
+    return (randint(0,255),randint(0,255),randint(0,255))
 while True:
-    screen.fill((100,100,100))
+    screen.fill((0,0,0))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -64,17 +67,17 @@ while True:
     for i,v in enumerate(hr):
         clr = (0,0,0)
         if v == "1":
-            clr = (255,255,255)
+            clr = randCol()
         pygame.draw.circle(screen,clr,(50,50*(i+1)),20)
     for i,v in enumerate(mn):
         clr = (0,0,0)
         if v == "1":
-            clr = (255,255,255)
+            clr = randCol()
         pygame.draw.circle(screen,clr,(100,50*(i+1)),20)
     for i,v in enumerate(sec):
         clr = (0,0,0)
         if v == "1":
-            clr = (255,255,255)
+            clr = randCol()
         pygame.draw.circle(screen,clr,(150,50*(i+1)),20)
     pygame.display.update()
     time.sleep(1)
